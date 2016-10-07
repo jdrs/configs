@@ -29,6 +29,9 @@ Plugin 'tpope/vim-fugitive'
 " groovy syntax
 Plugin 'rdolgushin/groovy.vim'
 
+" NERDTree - The NERD Tree allows you to explore your filesystem and to open
+" files and directories.
+Plugin 'scrooloose/nerdtree.git'
 
 " PLUGINS END HERE
 call vundle#end()
@@ -73,6 +76,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 """ AIR-LINE END
 
+""" NERDTree
+" close NERDTree if its the only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"" USER MAPS 
 " F12 - Quit without saving
@@ -81,3 +87,6 @@ map <F12> :q!<CR>
 map <F7> :tabp<CR>
 " F8 - Next tab
 map <F8> :tabn<CR>
+" Ctrl+n - opens NERDTree
+map <C-n> :NERDTreeToggle<CR>
+

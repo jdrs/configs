@@ -37,10 +37,12 @@ draw_shades no
 double_buffer yes
 use_xft yes
 xftfont DejaVu Sans Mono:size=6
-gap_x 10
 #if dual monitors
-#gap_y 320
+#vertical setup
+#gap_x 38
+#gap_y 910
 #if single monitor
+gap_x 10
 gap_y 5
 minimum_size 5 5
 net_avg_samples 2
@@ -94,7 +96,7 @@ Disk $hr
 ${goto 20}File System: / $color${fs_used /}/${fs_size /}
 ${goto 30}${fs_bar 6,160 /}
 
-${if_existing /sys/class/net/enp2s0f1/operate up}${color white}Network - Wired $hr
+${if_existing /sys/class/net/enp2s0f1/operstate up}${color white}Network - Wired $hr
 ${goto 20}Up:   ${upspeed enp2s0f1}
 ${goto 30}${upspeedgraph enp2s0f1 20,160 45}
 ${goto 20}Down: ${downspeed enp2s0f1}
